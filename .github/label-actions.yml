@@ -76,7 +76,6 @@ help-wanted:
 needs-repro:
   comment: >
     :wave: @{issue-author}, we are not able to reproduce the issue. Please update the steps to reproduce it or a repository that demonstrates the issue you are reporting in a <a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal, complete, and reproducible</a> manner.
-    </td></tr></tbody></table>
   label: 'needs-feedback'
   unlabel:
   - acknowledged
@@ -97,8 +96,6 @@ needs-verify-latest:
 documentation:
   comment: >
     We are using GitHub issues exclusively to track bugs. Please report this issue in.?
-  label:
-    'wontfix'
   close: true
 
 wontfix:
