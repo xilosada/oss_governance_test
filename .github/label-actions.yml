@@ -40,7 +40,11 @@ needs-feedback:
   - needs-triage
 
 acknowledged:
-  unlabel: *ack
+  unlabel:
+  - needs-feedback
+  - needs-repro
+  - needs-verify-latest
+  - needs-triage
 
 fix-ready:
   comment: >
