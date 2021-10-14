@@ -14,5 +14,5 @@ jobs:
         uses: hramos/needs-attention@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          response-required-label: 'needs-info'
+          response-required-label: 'needs-feedback'
           needs-attention-label: 'needs-triage'
