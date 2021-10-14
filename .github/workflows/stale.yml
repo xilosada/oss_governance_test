@@ -15,5 +15,4 @@ jobs:
           days-before-close: 0
           enable-statistics: true
           operations-per-run: 60
-          exempt-issue-labels: 'feature-request,needs-triage,bug'
-
+          exempt-issue-labels: 'acknowledged,needs-triage'

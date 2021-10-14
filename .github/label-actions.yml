@@ -1,5 +1,6 @@
 # Configuration for Label Actions - https://github.com/dessant/label-actions
 
+# Base PR and issues lifecycle
 needs-triage:
   unlabel:
   - 'needs-feedback'
@@ -16,5 +17,9 @@ acknowledged:
   - 'needs-triage'
 
 # The `wontfix` label is removed from issues
-invalid:
-    close: true
+wontfix:
+  unlabel:
+  - 'needs-feedback'
+  - 'needs-triage'
+  - 'acknowledged'
+  close: true
