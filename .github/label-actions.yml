@@ -23,16 +23,13 @@ acklist: &ack
 
 # Base PR and issues lifecycle
 needs-triage:
-  unlabel:
-  - *triage
+  unlabel: *triage
 
 needs-feedback:
-  unlabel:
-  - *feedback
+  unlabel: *feedback
 
 acknowledged:
-  unlabel:
-  - *ack
+  unlabel: *ack
 
 fix-ready:
   comment: >
@@ -44,15 +41,13 @@ wip:
   comment: >
     :wave: @{issue-author}, the team has everything we need to work on this.
   label: 'acknowledged'
-  unlabel:
-  - *ack
+  unlabel: *ack
 
 help-wanted:
   comment: >
     :wave: @{issue-author}, this issue seems valid but our team is small, bla, bla bla.
   label: 'acknowledged'
-  unlabel:
-  - *ack
+  unlabel: *ack
 
 #needs-feedback region
 needs-repro:
@@ -60,15 +55,13 @@ needs-repro:
     :wave: @{issue-author}, we are not able to reproduce the issue. Please update the steps to reproduce it or a repository that demonstrates the issue you are reporting in a <a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal, complete, and reproducible</a> manner.
     </td></tr></tbody></table>
   label: 'needs-feedback'
-  unlabel:
-  - *feedback
+  unlabel: *feedback
 
 needs-verify-latest:
   comment: >
     :wave: @{issue-author}, it looks like you are using an older version of the SDK. Please <a href="https://developers.facebook.com/docs/android">upgrade</a> to the latest version, and verify if the issue persists. If it does not, please let us know so we can close out this issue. This helps us ensure we are looking at issues that still exist in the current release.
   label: 'needs-feedback'
-  unlabel:
-  - *feedback
+  unlabel: *feedback
 
 #wont fix
 documentation:
