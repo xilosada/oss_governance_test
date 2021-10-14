@@ -1,28 +1,33 @@
 # Configuration for Label Actions - https://github.com/dessant/label-actions
 
+triagelist: &triage
+  - needs-triage
+
+feedbacklist: &feedback
+  - needs-feedback
+  - needs-repro
+  - needs-verify-latest
+
+acklist: &ack
+  - acknowledged
+  - wip
+  - help-wanted
+
 # Base PR and issues lifecycle
 needs-triage:
   unlabel:
-  - 'needs-feedback'
-  - 'acknowledged'
+  - *feedback
+  - *ack
 
 needs-feedback:
   unlabel:
-  - 'needs-triage'
-  - 'acknowledged'
+  - *triage
+  - *ack
 
 acknowledged:
   unlabel:
-  - 'needs-feedback'
-  - 'needs-triage'
-
-# The `wontfix` label is removed from issues
-wontfix:
-  unlabel:
-  - 'needs-feedback'
-  - 'needs-triage'
-  - 'acknowledged'
-  close: true
+  - *feedback
+  - *triage
 
 fix-ready:
   comment: >
@@ -34,26 +39,35 @@ wip:
   comment: >
     :wave: @{issue-author}, the team has everything we need to work on this.
   label: 'acknowledged'
+  unlabel:
+  - *feedback
+  - *triage
 
 help-wanted:
   comment: >
     :wave: @{issue-author}, this issue seems valid but our team is small, bla, bla bla.
-  label:
-    'acknowledged'
+  label: 'acknowledged'
+  unlabel:
+  - *feedback
+  - *triage
 
 #needs-feedback region
 needs-repro:
   comment: >
     :wave: @{issue-author}, we are not able to reproduce the issue. Please update the steps to reproduce it or a repository that demonstrates the issue you are reporting in a <a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal, complete, and reproducible</a> manner.
     </td></tr></tbody></table>
-  label:
-    'needs-feedback'
+  label: 'needs-feedback'
+  unlabel:
+  - *ack
+  - *triage
 
 needs-verify-latest:
   comment: >
     :wave: @{issue-author}, it looks like you are using an older version of the SDK. Please <a href="https://developers.facebook.com/docs/android">upgrade</a> to the latest version, and verify if the issue persists. If it does not, please let us know so we can close out this issue. This helps us ensure we are looking at issues that still exist in the current release.
-  label:
-    'needs-feedback'
+  label: 'needs-feedback'
+  unlabel:
+  - *ack
+  - *triage
 
 #wont fix
 documentation:
@@ -61,13 +75,23 @@ documentation:
     We are using GitHub issues exclusively to track bugs. Please report this issue in.?
   label:
     'wontfix'
+  unlabel:
+  - *ack
+  - *triage
+  - *feedback
+
+# The `wontfix` label is removed from issues
+wontfix:
+  unlabel:
+  - *feedback
+  - *triage
+  - *ack
+  close: true
 
 question:
   comment: >
     We are using GitHub issues exclusively to track bugs. GitHub may not be the ideal place to ask a question, but you can try asking over on[Developer Community Forum](https://developers.facebook.com/community/).
-  label:
-    'wontfix'
+  close: true
 
 invalid:
-  label:
-    'wontfix'
+  close: true
