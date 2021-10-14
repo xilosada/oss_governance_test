@@ -23,3 +23,52 @@ wontfix:
   - 'needs-triage'
   - 'acknowledged'
   close: true
+
+fix-ready:
+  comment: >
+    :wave: @{issue-author}, this issue has been fixed in the last version.
+  close: true
+
+#acknowledged category:
+wip:
+  comment: >
+    :wave: @{issue-author}, the team has everything we need to work on this.
+  label:
+    acknowledged
+
+help-wanted:
+  comment: >
+    :wave: @{issue-author}, this issue seems valid but our team is small, bla, bla bla.
+  label:
+    acknowledged
+
+#needs-feedback region
+needs-repro:
+  comment: >
+    :wave: @{issue-author}, we are not able to reproduce the issue. Please update the steps to reproduce it or a repository that demonstrates the issue you are reporting in a <a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal, complete, and reproducible</a> manner.
+    </td></tr></tbody></table>
+  labels:
+    "needs-feedback"
+
+needs-verify-latest:
+  comment: >
+    :wave: @{issue-author}, it looks like you are using an older version of the SDK. Please <a href="https://developers.facebook.com/docs/android">upgrade</a> to the latest version, and verify if the issue persists. If it does not, please let us know so we can close out this issue. This helps us ensure we are looking at issues that still exist in the current release.
+  labels:
+    "needs-feedback"
+
+#wont fix
+documentation:
+  comment: >
+    We are using GitHub issues exclusively to track bugs. Please report this issue in.?
+  labels:
+    wontfix
+
+question:
+  comment: >
+    We are using GitHub issues exclusively to track bugs. GitHub may not be the ideal place to ask a question, but you can try asking over on[Developer Community Forum](https://developers.facebook.com/community/).
+  labels:
+    wontfix
+
+invalid:
+  labels:
+    wontfix
