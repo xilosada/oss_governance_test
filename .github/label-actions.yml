@@ -1,33 +1,38 @@
 # Configuration for Label Actions - https://github.com/dessant/label-actions
 
 triagelist: &triage
-  - needs-triage
-
-feedbacklist: &feedback
   - needs-feedback
   - needs-repro
   - needs-verify-latest
-
-acklist: &ack
   - acknowledged
   - wip
   - help-wanted
+  - needs-triage
+
+feedbacklist: &feedback
+  - acknowledged
+  - wip
+  - help-wanted
+  - needs-triage
+
+acklist: &ack
+  - needs-feedback
+  - needs-repro
+  - needs-verify-latest
+  - needs-triage
 
 # Base PR and issues lifecycle
 needs-triage:
   unlabel:
-  - *feedback
-  - *ack
+  - *triage
 
 needs-feedback:
   unlabel:
-  - *triage
-  - *ack
+  - *feedback
 
 acknowledged:
   unlabel:
-  - *feedback
-  - *triage
+  - *ack
 
 fix-ready:
   comment: >
@@ -40,16 +45,14 @@ wip:
     :wave: @{issue-author}, the team has everything we need to work on this.
   label: 'acknowledged'
   unlabel:
-  - *feedback
-  - *triage
+  - *ack
 
 help-wanted:
   comment: >
     :wave: @{issue-author}, this issue seems valid but our team is small, bla, bla bla.
   label: 'acknowledged'
   unlabel:
-  - *feedback
-  - *triage
+  - *ack
 
 #needs-feedback region
 needs-repro:
@@ -58,16 +61,14 @@ needs-repro:
     </td></tr></tbody></table>
   label: 'needs-feedback'
   unlabel:
-  - *ack
-  - *triage
+  - *feedback
 
 needs-verify-latest:
   comment: >
     :wave: @{issue-author}, it looks like you are using an older version of the SDK. Please <a href="https://developers.facebook.com/docs/android">upgrade</a> to the latest version, and verify if the issue persists. If it does not, please let us know so we can close out this issue. This helps us ensure we are looking at issues that still exist in the current release.
   label: 'needs-feedback'
   unlabel:
-  - *ack
-  - *triage
+  - *feedback
 
 #wont fix
 documentation:
@@ -75,17 +76,9 @@ documentation:
     We are using GitHub issues exclusively to track bugs. Please report this issue in.?
   label:
     'wontfix'
-  unlabel:
-  - *ack
-  - *triage
-  - *feedback
+  close: true
 
-# The `wontfix` label is removed from issues
 wontfix:
-  unlabel:
-  - *feedback
-  - *triage
-  - *ack
   close: true
 
 question:
