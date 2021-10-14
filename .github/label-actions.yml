@@ -1,36 +1,36 @@
 # Configuration for Label Actions - https://github.com/dessant/label-actions
 
-triagelist: &triage
-  - needs-feedback
-  - needs-repro
-  - needs-verify-latest
-  - acknowledged
-  - wip
-  - help-wanted
-  - needs-triage
+# triagelist: &triage
+#   - needs-feedback
+#   - needs-repro
+#   - needs-verify-latest
+#   - acknowledged
+#   - wip
+#   - help-wanted
+#   - needs-triage
 
-feedbacklist: &feedback
-  - acknowledged
-  - wip
-  - help-wanted
-  - needs-triage
+# feedbacklist: &feedback
+#   - acknowledged
+#   - wip
+#   - help-wanted
+#   - needs-triage
 
-acklist: &ack
-  - needs-feedback
-  - needs-repro
-  - needs-verify-latest
-  - needs-triage
+# acklist: &ack
+#   - needs-feedback
+#   - needs-repro
+#   - needs-verify-latest
+#   - needs-triage
 
-# Base PR and issues lifecycle
-needs-triage:
-  unlabel:
-  - needs-feedback
-  - needs-repro
-  - needs-verify-latest
-  - acknowledged
-  - wip
-  - help-wanted
-  - needs-triage
+# # Base PR and issues lifecycle
+# needs-triage:
+#   unlabel:
+#   - needs-feedback
+#   - needs-repro
+#   - needs-verify-latest
+#   - acknowledged
+#   - wip
+#   - help-wanted
+#   - needs-triage
 
 needs-feedback:
   unlabel:
