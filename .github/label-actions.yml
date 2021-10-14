@@ -1,0 +1,20 @@
+# Configuration for Label Actions - https://github.com/dessant/label-actions
+
+needs-triage:
+  unlabel:
+  - 'needs-feedback'
+  - 'acknowledged'
+
+needs-feedback:
+  unlabel:
+  - 'needs-triage'
+  - 'acknowledged'
+
+acknowledged:
+  unlabel:
+  - 'needs-feedback'
+  - 'needs-triage'
+
+# The `wontfix` label is removed from issues
+invalid:
+    close: true
